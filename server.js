@@ -10,11 +10,10 @@ const dev = app.get("env") !== "production";
 
 // load dotenv and config port
 
-const dotenv = require("dotenv");
-dotenv.config();
-
-port = process.env.PORT;
-app.listen(port, () => console.log(`server started on port ${port}`));
+// const dotenv = require("dotenv");
+// dotenv.config();
+// port = process.env.PORT;
+// app.listen(port, () => console.log(`server started on port ${port}`));
 
 if (!dev) {
   app.disable("x-powered-by");
@@ -33,6 +32,9 @@ if (dev) {
 }
 
 // router
+
+const router = require("./router");
+app.use("/", router);
 
 const server = require("http").createServer(app);
 
