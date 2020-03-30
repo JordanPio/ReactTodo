@@ -9,7 +9,7 @@ mongoDB.connect(
   function(err, client) {
     module.exports = client;
     const app = require("./server");
-    app.listen(process.env.port);
+    app.listen(process.env.PORT);
     console.log(`server started`);
   }
 );
