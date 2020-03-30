@@ -13,7 +13,7 @@ function TodoList() {
 
   function fetchItems() {
     axios
-      .get("http://localhost:5000/")
+      .get("/")
       .then(res => {
         console.log(res.data);
         setTodos(res.data);
