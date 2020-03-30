@@ -10,6 +10,6 @@ mongoDB.connect(
     module.exports = client;
     const app = require("./server");
     app.listen(process.env.port);
-    console.log(`server started on port ${port}`);
+    console.log(`server started on port ${process.env.port}`);
   }
 );
