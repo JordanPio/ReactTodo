@@ -9,7 +9,7 @@ const todoController = require("./controllers/todoController");
 
 //seutp routers
 
-router.get("/", todoController.loadData);
+router.get("/data", todoController.loadData);
 router.post("/create-item", todoController.createItem);
 
 module.exports = router;

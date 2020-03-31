@@ -16,7 +16,7 @@ exports.loadData = function(req, res) {
 
 exports.createItem = function(req, res) {
   let safeText = req.body.text;
-  try {
+  try {cd
     todoCollection.insertOne({ text: safeText }, function(err, info) {
       res.json(info.ops[0]);
     });

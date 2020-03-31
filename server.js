@@ -8,6 +8,11 @@ const morgan = require("morgan");
 const compression = require("compression");
 const dev = app.get("env") !== "production";
 
+// router
+
+const router = require("./router");
+app.use("/", router);
+
 // load dotenv and config port
 
 // const dotenv = require("dotenv");
@@ -30,11 +35,6 @@ if (!dev) {
 if (dev) {
   app.use(morgan("dev"));
 }
-
-// router
-
-const router = require("./router");
-app.use("/", router);
 
 const server = require("http").createServer(app);
 
