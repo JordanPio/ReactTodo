@@ -22,7 +22,7 @@ function CreateBox({ clickDetection }) {
   return (
     <div>
       <div className="jumbotron p-3 shadow-sm">
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} id="create-form">
           <div className="d-flex align-items center">
             <input
               id="item-text"
@@ -32,7 +32,10 @@ function CreateBox({ clickDetection }) {
               className="form-control mr-3"
               type="text"
             ></input>
-            <button> Add New Item </button>
+            <button className="create-me btn btn-primary text-nowrap">
+              {" "}
+              Add New Item{" "}
+            </button>
           </div>
         </form>
       </div>

@@ -32,14 +32,17 @@ function TodoList() {
     <div>
       <div>
         <CreateBox clickDetection={handleChange} />
-        <ul>
-          {errorReport.length === 0 ? (
-            ""
-          ) : (
-            <div className="alert align-items-center">{errorReport}</div>
-          )}
+        {errorReport.length === 0 ? (
+          ""
+        ) : (
+          <div className="alert alert-danger text-center">{errorReport}</div>
+        )}
+        <ul className="list-group pb-5">
           {todos.map(todos => (
-            <li key={todos._id}>
+            <li
+              key={todos._id}
+              className="list-group-item list-group-item-action d-flex align-items-center justify-content-between"
+            >
               <span>{todos.text}</span>
               <div>
                 <button>Edit</button>
