@@ -8,7 +8,7 @@ function CreateBox({ clickDetection, setErrorReport }) {
     const createValue = createField.value;
 
     axios
-      .post("http://localhost:5000/create-item", { text: createValue })
+      .post("/create-item", { text: createValue })
       .then(function() {
         createField.value = "";
         createField.focus();

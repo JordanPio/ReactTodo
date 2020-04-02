@@ -8,7 +8,7 @@ function EditButton({ id, clickDetection, setErrorReport }) {
       e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
     );
     if (userInput) {
-      Axios.post("http://localhost:5000/edit-item", {
+      Axios.post("/edit-item", {
         text: userInput,
         id: id
       })

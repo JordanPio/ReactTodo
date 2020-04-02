@@ -3,7 +3,7 @@ import Axios from "axios";
 
 function DeleteButton({ clickDetection, id, setErrorReport }) {
   function deleteFunc() {
-    Axios.post("http://localhost:5000/delete-item", { id: id })
+    Axios.post("/delete-item", { id: id })
       .then(() => clickDetection())
       .catch(error => setErrorReport(error.message));
   }
