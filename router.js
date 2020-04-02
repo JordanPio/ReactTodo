@@ -11,5 +11,7 @@ const todoController = require("./controllers/todoController");
 
 router.get("/data", todoController.loadData);
 router.post("/create-item", todoController.createItem);
+router.post("/delete-item", todoController.deleteItem);
+router.post("/edit-item", todoController.editItem);
 
 module.exports = router;

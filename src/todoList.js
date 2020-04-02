@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CreateBox from "./createTodoForm";
+import DeleteButton from "./deleteButton";
+import EditButton from "./editButton";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -13,7 +15,7 @@ function TodoList() {
 
   function fetchItems() {
     axios
-      .get("/data")
+      .get("http://localhost:5000/data")
       .then(res => {
         console.log(res.data);
         setTodos(res.data);
@@ -31,7 +33,10 @@ function TodoList() {
   return (
     <div>
       <div>
-        <CreateBox clickDetection={handleChange} />
+        <CreateBox
+          clickDetection={handleChange}
+          setErrorReport={setErrorReport}
+        />
         {errorReport.length === 0 ? (
           ""
         ) : (
@@ -43,10 +48,18 @@ function TodoList() {
               key={todos._id}
               className="list-group-item list-group-item-action d-flex align-items-center justify-content-between"
             >
-              <span>{todos.text}</span>
+              <span className="item-text">{todos.text}</span>
               <div>
-                <button>Edit</button>
-                <button>Delete</button>
+                <EditButton
+                  id={todos._id}
+                  clickDetection={handleChange}
+                  setErrorReport={setErrorReport}
+                />
+                <DeleteButton
+                  id={todos._id}
+                  clickDetection={handleChange}
+                  setErrorReport={setErrorReport}
+                />
               </div>
             </li>
           ))}

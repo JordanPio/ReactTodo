@@ -1,21 +1,21 @@
 import React from "react";
 import axios from "axios";
 
-function CreateBox({ clickDetection }) {
+function CreateBox({ clickDetection, setErrorReport }) {
   function onSubmit(e) {
     e.preventDefault();
-    const createField = document.getElementById("item-text");
+    const createField = document.getElementById("item-description");
     const createValue = createField.value;
 
     axios
-      .post("/create-item", { text: createValue })
+      .post("http://localhost:5000/create-item", { text: createValue })
       .then(function() {
         createField.value = "";
         createField.focus();
         clickDetection();
       })
       .catch(function(err) {
-        console.log(err.message);
+        setErrorReport(err.message);
       });
   }
 
@@ -25,7 +25,7 @@ function CreateBox({ clickDetection }) {
         <form onSubmit={onSubmit} id="create-form">
           <div className="d-flex align-items center">
             <input
-              id="item-text"
+              id="item-description"
               name="item"
               autoFocus
               autoComplete="off"
