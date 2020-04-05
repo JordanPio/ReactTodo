@@ -35,8 +35,8 @@ PORT=3000
 
 Once the .env file has been configured, run the app in production mode by typing the following
 
-# \$env:NODE_ENV="production"
+### \$env:NODE_ENV="production"
 
-# npm run dev
+## npm run dev
 
 This will run the APP using concurrently and in production mode.
